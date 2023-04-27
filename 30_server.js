@@ -10,6 +10,7 @@ const server = http.createServer((request, response) => {
     // 读取文件 fs 异步 API
     fs.readFile(filePath, (err, data) => {
         if (err) {
+            response.setHeader('content-type', 'text/html;charset=utf-8')
             response.statusCode = 500
             response.end('文件读取失败~~')
             return
