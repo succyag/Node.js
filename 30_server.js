@@ -33,10 +33,27 @@ const server = http.createServer((request, response) => {
     let filePath = root + pathname
     // 读取文件 fs 异步 API
     fs.readFile(filePath, (err, data) => {
+        if (request.method !== 'GET') {
+            response.statusCode = 405
+            response.end('<h1>405 Method Not Allowed</h1>')
+            return
+        }
         if (err) {
             response.setHeader('content-type', 'text/html;charset=utf-8')
-            response.statusCode = 500
-            response.end('文件读取失败~~')
+            // 判断错误的代号
+            switch(err.code) {
+                case 'ENOENT':
+                    response.statusCode = 404
+                    response.end('<h1>404 Not Found</h1>')
+                    break
+                case 'EPERM':
+                    response.statusCode = 403
+                    response.end('<h1>403 Forbidden</h1>')
+                    break
+                default:
+                    response.statusCode = 500
+                    response.end('<h1>Internal Server Error</h1>')
+            }
             return
         }
         // 获取文件的后缀名
