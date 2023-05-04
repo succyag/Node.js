@@ -9,7 +9,11 @@ function niejiao () {
 }
 
 // 暴露数据
-module.exports = {
-    tiemo,
-    niejiao
-}
+// module.exports = {
+//     tiemo,
+//     niejiao
+// }
+
+// exports 暴露数据
+// exports.tiemo = tiemo
+// exports.niejiao = niejiao
