@@ -26,6 +26,8 @@ function require(file) {
     })(exports, require, module, __filename, __dirname)
     // 5. 缓存结果
     caches[absolutePath] = module.exports
+    // 6. 返回 module.exports 的值
+    return modele.exports
 }
 
 const m = require('./36_me.js')
