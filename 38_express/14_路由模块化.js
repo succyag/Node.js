@@ -1,7 +1,3 @@
-/**
- * 针对 /admin /setting 的请求，要求 URL 携带 code=521 参数，如未携带提示【暗号错误】
- */
-
 // 导入 express
 const express = require('express')
 const homeRouter = require('./routes/homeRouter')
