@@ -3,7 +3,7 @@
 const mongoose = require('mongoose')
 
 // 设置 strictQuery 为 true
-mongoose.set('strictQuery', true)
+// mongoose.set('strictQuery', true)
 
 // 3. 连接 mongodb 服务                      数据库的名称
 mongoose.connect('mongodb://127.0.0.1:27017/bilibili')
