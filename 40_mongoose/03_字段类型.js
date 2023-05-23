@@ -3,7 +3,7 @@
 const mongoose = require('mongoose')
 
 // 设置 strictQuery 为 true
-mongoose.set('strictQuery', true)
+// mongoose.set('strictQuery', true)
 
 // 3. 连接 mongodb 服务                      数据库的名称
 mongoose.connect('mongodb://127.0.0.1:27017/bilibili')
@@ -17,7 +17,10 @@ mongoose.connection.once('open', () => {
         name: String,
         author: String,
         price: Number,
-        is_hot: Boolean
+        is_hot: Boolean,
+        targs: Array,
+        put_time: Date,
+        test: mongoose.Schema.Types.Mixed
     })
 
     // 6. 创建模型对象  对文档操作的封装对象
@@ -28,7 +31,10 @@ mongoose.connection.once('open', () => {
         name: '西游记',
         author: '吴承恩',
         price: 19.9,
-        is_hot: true
+        is_hot: true,
+        targs: ['鬼怪', '励志', '社会'],
+        put_time: new Date(),
+        test: 'succyag'
     }, (err, data) => {
         // 判断是否有错误
         if (err) {
