@@ -16,11 +16,17 @@ mongoose.connection.once('open', () => {
     let BookSchema = new mongoose.Schema({
         name: {
             type: String,
-            required: true // 表明该属性必须不为空
+            required: true, // 表明该属性必须不为空
+            unique: true // 设置为独一无二的
         },
         author: {
             type: String,
             default: '匿名'
+        },
+        // 类型
+        style: {
+            type: String,
+            enum: ['言情', '都市', '志怪']
         },
         price: Number
     })
@@ -32,7 +38,8 @@ mongoose.connection.once('open', () => {
     BookModel.create({
         name: '西游记',
         author: '吴承恩',
-        price: 19.9
+        price: 19.9,
+        style: '志怪'
     }, (err, data) => {
         // 判断是否有错误
         if (err) {
