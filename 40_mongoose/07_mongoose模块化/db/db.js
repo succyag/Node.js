@@ -4,6 +4,12 @@
  * @param {*} error 数据库连接失败的回调
  */
 module.exports = function (success, error) {
+    // 判断 error 为其设置默认值
+    if (typeof error !== 'fuction') {
+        error = () => {
+            console.log('连接失败');
+        }
+    }
     // 1. 安装 mongoose
     // 2. 导入 mongoose
     const mongoose = require('mongoose')
