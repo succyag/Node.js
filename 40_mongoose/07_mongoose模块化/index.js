@@ -3,7 +3,7 @@ const db = require('./db/db')
 // 导入 mongoose
 const mongoose = require('mongoose')
 // 导入 BookModel
-const BookModel = require('./models/BookModel') 
+const BookModel = require('./models/BookModel')
 
 // 调用函数
 db(() => {
